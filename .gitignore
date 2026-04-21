@@ -23,3 +23,6 @@ Thumbs.db
 
 # Test output
 test_output.txt
+
+# Assignment brief PDF
+*.pdf

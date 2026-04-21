@@ -8,7 +8,7 @@ def mock_lead_capture(name: str, email: str, platform: str) -> str:
     """Mock API that simulates submitting a qualified lead to a CRM."""
     separator = "=" * 55
     print(f"\n{separator}")
-    print("  🎯  LEAD CAPTURED SUCCESSFULLY!")
+    print("  *** LEAD CAPTURED SUCCESSFULLY! ***")
     print(f"  Name     : {name}")
     print(f"  Email    : {email}")
     print(f"  Platform : {platform}")
