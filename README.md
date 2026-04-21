@@ -13,8 +13,8 @@
 
 ### 1. Clone the repository
 ```bash
-git clone https://github.com/Praveennayak22/autostream-agent.git
-cd autostream-agent
+git clone https://github.com/Praveennayak22/autostream-chatbot.git
+cd autostream-chatbot
 ```
 
 ### 2. Install dependencies
@@ -39,14 +39,22 @@ The app opens at **http://localhost:8501**. The FAISS vectorstore is built autom
 
 ## 🎯 Demo Conversation Flow
 
+Below is the exact conversation from the recorded demo:
+
 | Turn | User Says | Agent Does |
 |------|-----------|------------|
-| 1 | "Hi there!" | Warm greeting, introduces AutoStream |
-| 2 | "What are your pricing plans?" | RAG lookup → accurate pricing answer |
-| 3 | "That sounds great, I want to try the Pro plan for my YouTube channel" | Detects **high-intent**, asks for name |
-| 4 | "I'm Alex" | Saves name, asks for email |
-| 5 | "alex@gmail.com" | Saves email, asks for platform |
-| 6 | "YouTube" | Fires `mock_lead_capture()` ✅ |
+| 1 | `Hi` | Warm greeting, introduces AutoStream as an AI-powered video editing tool |
+| 2 | `What is this?` | Explains AutoStream's product — features, and free trial offer |
+| 3 | `What plans do you offer?` | RAG lookup → lists Free, Pro, and Enterprise plans with pricing |
+| 4 | `Tell me more about the plam` | Understands intent despite typo → RAG retrieves full Pro plan feature details |
+| 5 | `How can i get started?` | Detects **high-intent lead** 🔥 → starts collecting contact info, asks for name |
+| 6 | `myself Praveen Kumar` | Extracts and saves name → asks for email |
+| 7 | `email id : dazzlingdacchu16@gmail.com` | Extracts and saves email → asks for platform |
+| 8 | `Youtube` | Saves platform → fires `mock_lead_capture()` ✅ → 🎯 Lead Captured! banner shown |
+| 9 | `You havent tell about the plans` | Answers follow-up product question even after lead capture |
+| 10 | `what about pricing` | RAG retrieves pricing details again |
+| 11 | `okay then i will start with the free trail` | Acknowledges interest, confirms free trial details |
+| 12 | `okay Thank you` | Warm closing response |
 
 ---
 
