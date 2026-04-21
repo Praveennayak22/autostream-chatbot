@@ -1,7 +1,7 @@
 # 🎬 AutoStream AI Agent — Social-to-Lead Agentic Workflow
 
 > **Machine Learning Intern Assignment** | ServiceHive × Inflx  
-> Built with **LangGraph** · **gemini-2.0-flash** · **FAISS RAG** · **Streamlit**
+> Built with **LangGraph** · **gemini-2.0-flash-lite** · **FAISS RAG** · **Streamlit**
 
 ---
 
@@ -30,7 +30,7 @@ GOOGLE_API_KEY=your_gemini_api_key_here
 
 ### 4. Run the agent
 ```bash
-streamlit run app.py
+python -m streamlit run app.py
 ```
 
 The app opens at **http://localhost:8501**. The FAISS vectorstore is built automatically on first run.
@@ -76,7 +76,7 @@ The `AgentState` TypedDict carries five fields across every graph node:
 
 ### RAG Pipeline
 
-The knowledge base (`knowledge_base/autostream_kb.md`) is chunked with `RecursiveCharacterTextSplitter`, embedded via Google's `text-embedding-004` model, and stored in a local **FAISS** index. On each product query, the top-3 relevant chunks are retrieved and injected into the LLM prompt as grounded context.
+The knowledge base (`knowledge_base/autostream_kb.md`) is chunked with `RecursiveCharacterTextSplitter`, embedded via Google's `gemini-embedding-001` model, and stored in a local **FAISS** index. On each product query, the top-3 relevant chunks are retrieved and injected into the LLM prompt as grounded context.
 
 ---
 
@@ -115,7 +115,7 @@ To deploy this agent on WhatsApp:
 ## 📁 Project Structure
 
 ```
-autostream-agent/
+autostream-chatbot/
 ├── agent/
 │   ├── __init__.py
 │   ├── state.py              # AgentState TypedDict
@@ -151,9 +151,9 @@ autostream-agent/
 
 | Layer | Technology |
 |-------|-----------|
-| LLM | gemini-2.0-flash |
+| LLM | gemini-2.0-flash-lite |
 | Orchestration | LangGraph 0.2+ |
-| RAG | FAISS + LangChain + Google `text-embedding-004` |
+| RAG | FAISS + LangChain + Google `gemini-embedding-001` |
 | UI | Streamlit |
 | State | LangGraph `StateGraph` with typed `AgentState` |
 | Config | python-dotenv |
